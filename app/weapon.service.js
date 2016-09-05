@@ -17,7 +17,11 @@ var WeaponService = (function () {
     //   return Promise.resolve(WEAPONS);
     // }
     WeaponService.prototype.getWeapons = function () {
-        return weapons_dummy_1.WEAPONS;
+        return Promise.resolve(weapons_dummy_1.WEAPONS);
+    };
+    WeaponService.prototype.getWeapon = function (id) {
+        return this.getWeapons()
+            .then(function (weapons) { return weapons.find(function (weapon) { return weapon.id === id; }); });
     };
     WeaponService = __decorate([
         core_1.Injectable(), 

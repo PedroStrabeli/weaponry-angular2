@@ -12,15 +12,28 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
+var weapons_component_1 = require('./weapons.component');
 var weapon_detail_component_1 = require('./weapon-detail.component');
+var dashboard_component_1 = require('./dashboard.component');
 var http_1 = require('@angular/http');
+var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule, http_1.JsonpModule],
-            declarations: [app_component_1.AppComponent, weapon_detail_component_1.WeaponDetailComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                app_routing_1.routing,
+                forms_1.ReactiveFormsModule,
+                http_1.JsonpModule],
+            declarations: [
+                app_component_1.AppComponent,
+                weapons_component_1.WeaponListComponent,
+                weapon_detail_component_1.WeaponDetailComponent,
+                dashboard_component_1.DashboardComponent
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

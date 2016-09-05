@@ -8,7 +8,12 @@ export class WeaponService{
   // getWeapons(): Promise<Weapon[]>{
   //   return Promise.resolve(WEAPONS);
   // }
-  getWeapons(): Weapon[]{
-    return WEAPONS;
+  getWeapons(): Promise<Weapon[]>{
+    return Promise.resolve(WEAPONS);
   }
+  getWeapon(id: number): Promise<Weapon> {
+    return this.getWeapons()
+           .then(weapons => weapons.find(weapon => weapon.id === id));
+  }
+
 }

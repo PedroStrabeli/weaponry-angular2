@@ -9,33 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var weapon_service_1 = require('./weapon.service');
 var AppComponent = (function () {
-    function AppComponent(weaponService) {
-        this.weaponService = weaponService;
-        this.title = 'Weaponry';
+    function AppComponent() {
+        this.title = 'Welcome to the Weaponry';
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.getWeapons();
-    };
-    AppComponent.prototype.getWeapons = function () {
-        this.weapons = this.weaponService.getWeapons();
-    };
-    AppComponent.prototype.onSelect = function (weapon) {
-        console.log(weapon);
-        this.wpn_sel = weapon;
-    };
-    AppComponent.prototype.close = function () {
-        this.wpn_sel = undefined;
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/template/app.template.html',
-            styleUrls: ['app/template/app.style.css'],
-            providers: [weapon_service_1.WeaponService]
+            template: "\n   <h1>{{title}}</h1>\n   <nav>\n     <a routerLink=\"/weapons\" class=\"btn\">Weapons</a>\n     <a routerLink=\"/dashboard\" class=\"btn\">Dashboard</a>\n   </nav>\n   <router-outlet></router-outlet>\n "
         }), 
-        __metadata('design:paramtypes', [weapon_service_1.WeaponService])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());

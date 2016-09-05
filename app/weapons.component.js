@@ -11,36 +11,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var weapon_service_1 = require('./weapon.service');
-var WeaponDetailComponent = (function () {
-    function WeaponDetailComponent(weaponService, route) {
+var WeaponListComponent = (function () {
+    function WeaponListComponent(weaponService, router) {
         this.weaponService = weaponService;
-        this.route = route;
+        this.router = router;
     }
-    WeaponDetailComponent.prototype.ngOnInit = function () {
+    WeaponListComponent.prototype.ngOnInit = function () {
+        this.getWeapons();
+    };
+    WeaponListComponent.prototype.getWeapons = function () {
         var _this = this;
-        this.route.params.forEach(function (params) {
-            var id = +params['id'];
-            _this.weaponService.getWeapon(id)
-                .then(function (wpn) { return _this.wpn = wpn; });
-        });
+        this.weaponService.getWeapons().then(function (weapons) { return _this.weapons = weapons; });
     };
-    WeaponDetailComponent.prototype.goBack = function () {
-        window.history.back();
+    WeaponListComponent.prototype.onSelect = function (weapon) {
+        this.wpn_sel = weapon;
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], WeaponDetailComponent.prototype, "wpn", void 0);
-    WeaponDetailComponent = __decorate([
+    WeaponListComponent.prototype.gotoDetail = function () {
+        var link = ['/detail', this.wpn_sel.id];
+        this.router.navigate(link);
+    };
+    WeaponListComponent.prototype.close = function () {
+        this.wpn_sel = undefined;
+    };
+    WeaponListComponent = __decorate([
         core_1.Component({
-            selector: 'weapon-detail',
-            templateUrl: 'app/template/weapon-detail.template.html',
+            selector: 'weapon-list',
+            templateUrl: 'app/template/weapons.template.html',
             styleUrls: ['app/template/app.style.css'],
             providers: [weapon_service_1.WeaponService]
         }), 
-        __metadata('design:paramtypes', [weapon_service_1.WeaponService, router_1.ActivatedRoute])
-    ], WeaponDetailComponent);
-    return WeaponDetailComponent;
+        __metadata('design:paramtypes', [weapon_service_1.WeaponService, router_1.Router])
+    ], WeaponListComponent);
+    return WeaponListComponent;
 }());
-exports.WeaponDetailComponent = WeaponDetailComponent;
-//# sourceMappingURL=weapon-detail.component.js.map
+exports.WeaponListComponent = WeaponListComponent;
+//# sourceMappingURL=weapons.component.js.map
