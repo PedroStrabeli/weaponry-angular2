@@ -27,7 +27,8 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 app_routing_1.routing,
                 forms_1.ReactiveFormsModule,
-                http_1.JsonpModule],
+                http_1.JsonpModule
+            ],
             declarations: [
                 app_component_1.AppComponent,
                 weapons_component_1.WeaponListComponent,

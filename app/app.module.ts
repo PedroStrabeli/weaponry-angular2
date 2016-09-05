@@ -9,12 +9,13 @@ import { JsonpModule } from '@angular/http';
 import { routing } from './app.routing'
 
 @NgModule({
-  imports:      [
+  imports: [
     BrowserModule,
     FormsModule,
     routing,
     ReactiveFormsModule,
-    JsonpModule],
+    JsonpModule
+  ],
   declarations: [
     AppComponent,
     WeaponListComponent,

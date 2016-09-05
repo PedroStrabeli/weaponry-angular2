@@ -35,7 +35,7 @@ var WeaponDetailComponent = (function () {
         core_1.Component({
             selector: 'weapon-detail',
             templateUrl: 'app/template/weapon-detail.template.html',
-            styleUrls: ['app/template/app.style.css'],
+            styleUrls: ['app/template/weapon-detail.style.css'],
             providers: [weapon_service_1.WeaponService]
         }), 
         __metadata('design:paramtypes', [weapon_service_1.WeaponService, router_1.ActivatedRoute])

@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
      <a routerLink="/dashboard" class="btn">Dashboard</a>
    </nav>
    <router-outlet></router-outlet>
- `
+ `,
+ styleUrls: ['app/template/app.style.css'],
 
 })
 export class AppComponent {

@@ -30,7 +30,8 @@ var DashboardComponent = (function () {
         core_1.Component({
             selector: 'dashboard',
             templateUrl: 'app/template/dashboard.template.html',
-            providers: [weapon_service_1.WeaponService]
+            providers: [weapon_service_1.WeaponService],
+            styleUrls: ['app/template/dashboard.style.css'],
         }), 
         __metadata('design:paramtypes', [weapon_service_1.WeaponService, router_1.Router])
     ], DashboardComponent);

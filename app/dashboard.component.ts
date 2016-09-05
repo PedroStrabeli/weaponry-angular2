@@ -7,7 +7,9 @@ import { WeaponService } from './weapon.service';
 @Component({
   selector: 'dashboard',
   templateUrl: 'app/template/dashboard.template.html',
-  providers: [WeaponService]
+  providers: [WeaponService],
+  styleUrls: ['app/template/dashboard.style.css'],
+
 })
 
 export class DashboardComponent implements OnInit {
