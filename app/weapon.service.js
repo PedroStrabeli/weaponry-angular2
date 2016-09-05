@@ -9,23 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
-var app_component_1 = require('./app.component');
-var weapon_detail_component_1 = require('./weapon-detail.component');
-var http_1 = require('@angular/http');
-var AppModule = (function () {
-    function AppModule() {
+var weapons_dummy_1 = require('./weapons-dummy');
+var WeaponService = (function () {
+    function WeaponService() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule, http_1.JsonpModule],
-            declarations: [app_component_1.AppComponent, weapon_detail_component_1.WeaponDetailComponent],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
+    // getWeapons(): Promise<Weapon[]>{
+    //   return Promise.resolve(WEAPONS);
+    // }
+    WeaponService.prototype.getWeapons = function () {
+        return weapons_dummy_1.WEAPONS;
+    };
+    WeaponService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], WeaponService);
+    return WeaponService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.WeaponService = WeaponService;
+//# sourceMappingURL=weapon.service.js.map

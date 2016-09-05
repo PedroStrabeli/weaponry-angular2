@@ -1,0 +1,14 @@
+<h2>{{wpn.name}} details:</h2>
+<div class='weapons'>
+    <label>ID:</label><span>{{wpn.id}}</span>
+</div>
+<div>
+    <label>Name</label>
+    <input [(ngModel)]="wpn.name" placeholder="Weapon Name">
+</div>
+<div>
+<label>Type:</label>
+    <ul>
+        <li *ngFor="let type of wpn.type">{{type}}</li>
+    </ul>
+</div>

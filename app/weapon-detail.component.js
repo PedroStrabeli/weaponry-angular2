@@ -9,15 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var weapon_1 = require('./weapon');
-wpn: weapon_1.Weapon;
 var WeaponDetailComponent = (function () {
     function WeaponDetailComponent() {
     }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], WeaponDetailComponent.prototype, "wpn", void 0);
     WeaponDetailComponent = __decorate([
         core_1.Component({
             selector: 'weapon-detail',
-            template: "<div *ngIf=\"wpn\">\n      <h2>{{wpn.name}} details:</h2>\n      <div>\n          <label>ID:</label><span>{{wpn.id}}</span>\n      </div>\n      <div>\n          <label>Name</label>\n          <input [(ngModel)]=\"wpn.name\" placeholder=\"Weapon Name\">\n      </div>\n      <div>\n      <label>Type:</label>\n          <ul class=\"weapons>\n              <li *ngFor=\"let type of wpn.type\">{{type}}</li>\n          </ul>\n      </div>\n      <button (click)=\"Close()\">Close Details</button>\n  </div>"
+            templateUrl: 'app/template/weapon-detail.template.html'
         }), 
         __metadata('design:paramtypes', [])
     ], WeaponDetailComponent);
