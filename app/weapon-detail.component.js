@@ -24,6 +24,10 @@ var WeaponDetailComponent = (function () {
                 .then(function (wpn) { return _this.wpn = wpn; });
         });
     };
+    WeaponDetailComponent.prototype.save = function () {
+        this.weaponService.update(this.wpn)
+            .then(this.goBack);
+    };
     WeaponDetailComponent.prototype.goBack = function () {
         window.history.back();
     };

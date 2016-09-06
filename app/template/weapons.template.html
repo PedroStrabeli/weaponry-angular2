@@ -1,10 +1,20 @@
 <h2>My Weapons</h2>
 <div class="weapons">
-
+  <div>
+    <label>New Weapon:</label> <input #weaponName />
+    <label>Types (separate with comma):</label> <input #weaponType />
+    <button (click)="add(weaponName.value, weaponType.value); weaponName.value=''; weaponType.value=''">
+      Add
+    </button>
+  </div>
+</div>
+<div class="weapons">
   <!--<input type="text" class="search" placeholder="Search for a Weapon"  [formControl]="term">-->
 <ul>
   <li *ngFor="let wpn of weapons" (click)="onSelect(wpn)" [class.selected]="wpn === wpn_sel">
   <span class="badge">{{wpn.id}}</span> {{wpn.name}} <span><img src="/app/template/img/{{wpn.img}}"></span>
+  <button class="delete"
+    (click)="delete(wpn); $event.stopPropagation()">x</button>
   </li>
 </ul>
 <div *ngIf="wpn_sel">
@@ -13,5 +23,6 @@
   </h2>
   <button (click)="gotoDetail()">View Details</button>
 </div>
+
 
 </div>

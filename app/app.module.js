@@ -11,11 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
+// Imports for loading & configuring the in-memory web api
+var angular2_in_memory_web_api_1 = require('angular2-in-memory-web-api');
+var in_memory_data_service_1 = require('./in-memory-data.service');
+// Import Components and services
 var app_component_1 = require('./app.component');
 var weapons_component_1 = require('./weapons.component');
 var weapon_detail_component_1 = require('./weapon-detail.component');
 var dashboard_component_1 = require('./dashboard.component');
-var http_1 = require('@angular/http');
+var weapon_search_component_1 = require('./weapon-search.component');
+var http_2 = require('@angular/http');
 var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
@@ -27,13 +33,16 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 app_routing_1.routing,
                 forms_1.ReactiveFormsModule,
-                http_1.JsonpModule
+                http_2.JsonpModule,
+                http_1.HttpModule,
+                angular2_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService)
             ],
             declarations: [
                 app_component_1.AppComponent,
                 weapons_component_1.WeaponListComponent,
                 weapon_detail_component_1.WeaponDetailComponent,
-                dashboard_component_1.DashboardComponent
+                dashboard_component_1.DashboardComponent,
+                weapon_search_component_1.WeaponSearchComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

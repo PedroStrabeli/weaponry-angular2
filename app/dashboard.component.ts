@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Weapon } from './weapon';
 import { WeaponService } from './weapon.service';
+import { WeaponSearchComponent } from './weapon-search.component';
 
 @Component({
   selector: 'dashboard',

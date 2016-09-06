@@ -24,6 +24,12 @@ export class WeaponDetailComponent implements OnInit{
     });
   }
 
+  save(): void {
+  this.weaponService.update(this.wpn)
+    .then(this.goBack);
+  }
+
+
   goBack(): void {
     window.history.back();
   }

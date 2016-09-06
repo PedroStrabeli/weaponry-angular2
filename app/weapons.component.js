@@ -23,6 +23,33 @@ var WeaponListComponent = (function () {
         var _this = this;
         this.weaponService.getWeapons().then(function (weapons) { return _this.weapons = weapons; });
     };
+    WeaponListComponent.prototype.add = function (name, type) {
+        var _this = this;
+        var name = name.trim();
+        var arrayType = type.split(',');
+        for (var i = 0; i < arrayType.length; i++)
+            arrayType[i].trim();
+        if (!name) {
+            return;
+        }
+        this.weaponService.create(name, arrayType)
+            .then(function (weapon) {
+            _this.weapons.push(weapon);
+            _this.wpn_sel = null;
+        });
+    };
+    WeaponListComponent.prototype.delete = function (weapon) {
+        var _this = this;
+        console.log(weapon);
+        this.weaponService
+            .delete(weapon.id)
+            .then(function () {
+            _this.weapons = _this.weapons.filter(function (h) { return h !== weapon; });
+            if (_this.wpn_sel === weapon) {
+                _this.wpn_sel = null;
+            }
+        });
+    };
     WeaponListComponent.prototype.onSelect = function (weapon) {
         this.wpn_sel = weapon;
     };
